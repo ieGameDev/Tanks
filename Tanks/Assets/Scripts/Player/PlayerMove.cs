@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Infrastructure.Bootstrap;
+﻿using Assets.Scripts.CameraLogic;
+using Assets.Scripts.Infrastructure.Bootstrap;
 using Assets.Scripts.Infrastructure.Services.InputService;
 using UnityEngine;
 
@@ -8,15 +9,23 @@ namespace Assets.Scripts.Player
     public class PlayerMove : MonoBehaviour
     {
         [SerializeField] private float _movementSpeed;
+        [SerializeField] private float _rotationSpeed;
 
         private CharacterController _characterController;
         private IInputService _input;
+        private Camera _camera;
 
 
         private void Awake()
         {
-            _characterController = GetComponent<CharacterController>();
             _input = Game.Input;
+            _characterController = GetComponent<CharacterController>();            
+        }
+
+        private void Start()
+        {
+            _camera = Camera.main;
+            _camera.GetComponent<CameraFollow>().Follow(gameObject);
         }
 
         private void Update()
@@ -25,11 +34,12 @@ namespace Assets.Scripts.Player
 
             if (_input.Axis.sqrMagnitude > 0)
             {
-                movementVector = Camera.main.transform.TransformDirection(_input.Axis);
+                movementVector = _camera.transform.TransformDirection(_input.Axis);
                 movementVector.y = 0;
                 movementVector.Normalize();
 
-                transform.forward = movementVector;
+                Quaternion targetRotation = Quaternion.LookRotation(movementVector);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
             }
 
             movementVector += Physics.gravity;

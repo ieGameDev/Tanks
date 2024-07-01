@@ -98,12 +98,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 0.32502106
-  m_Radius: 0.47759023
+  m_Radius: 0.28
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!114 &6192623641748597284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ee860e50b2d7054ca3fcf0a01f2c0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterController: {fileID: 6704162561409166683}
+  _movementSpeed: 2
+  _rotationSpeed: 10
 --- !u!1001 &8425611908937379663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -197,3 +198,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8425611908937379663}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8659472870085120542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d7f46fd27f2b8e47b039542c1c8b7b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 8425611908937379663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6217592765387679232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8659472870085120542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbe30ea04b17314bbbcb4f5cc48bb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _turret: {fileID: 8315738513551001764}
+  _rotationSpeed: 3

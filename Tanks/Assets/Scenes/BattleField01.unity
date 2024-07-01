@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
+  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -388,7 +389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   m_LocalRotation: {x: 0.42999667, y: -0, z: -0, w: 0.90283054}
-  m_LocalPosition: {x: 0, y: 6.73, z: -4.42}
+  m_LocalPosition: {x: 0, y: 6.73, z: -4.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -428,6 +429,21 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &330585548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f8a5d0c193b3e488684ad73e7d01ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationAngleX: 55
+  _distance: 7
+  _smoothTime: 0.15
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,25 +938,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6192623641748597284, guid: 4d3cbce9772769a4983e0761afb2fb15,
+    - target: {fileID: 6217592765387679232, guid: 4d3cbce9772769a4983e0761afb2fb15,
         type: 3}
-      propertyPath: _movementSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704162561409166683, guid: 4d3cbce9772769a4983e0761afb2fb15,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704162561409166683, guid: 4d3cbce9772769a4983e0761afb2fb15,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704162561409166683, guid: 4d3cbce9772769a4983e0761afb2fb15,
-        type: 3}
-      propertyPath: m_SkinWidth
-      value: 0.0001
+      propertyPath: _rotationSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8315738514198209371, guid: 4d3cbce9772769a4983e0761afb2fb15,
         type: 3}
@@ -1002,7 +1003,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6217592765387679232, guid: 4d3cbce9772769a4983e0761afb2fb15, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4d3cbce9772769a4983e0761afb2fb15, type: 3}
 --- !u!1001 &6098535071824363271
 PrefabInstance:
@@ -1011,6 +1013,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1776265121166982940, guid: 9a3291b57ac9dfb4dbf96c0c612b5c83,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6460819806589696260, guid: 9a3291b57ac9dfb4dbf96c0c612b5c83,
         type: 3}
       propertyPath: m_RootOrder
@@ -1065,6 +1072,38 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540549415085493504, guid: 9a3291b57ac9dfb4dbf96c0c612b5c83,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8c6fd0cf65a9e41488025956c27c40a5,
+        type: 3}
+    - target: {fileID: 6540549415085493504, guid: 9a3291b57ac9dfb4dbf96c0c612b5c83,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540571084265817244, guid: 9a3291b57ac9dfb4dbf96c0c612b5c83,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8c6fd0cf65a9e41488025956c27c40a5,
+        type: 3}
+    - target: {fileID: 6540571084265817244, guid: 9a3291b57ac9dfb4dbf96c0c612b5c83,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.5882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540571084265817244, guid: 9a3291b57ac9dfb4dbf96c0c612b5c83,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581693005936716646, guid: 9a3291b57ac9dfb4dbf96c0c612b5c83,
+        type: 3}
+      propertyPath: m_Name
+      value: JoystickLeft
       objectReference: {fileID: 0}
     - target: {fileID: 8240254229316327917, guid: 9a3291b57ac9dfb4dbf96c0c612b5c83,
         type: 3}
