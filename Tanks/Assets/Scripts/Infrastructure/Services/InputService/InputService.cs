@@ -7,9 +7,13 @@ namespace Assets.Scripts.Infrastructure.Services.InputService
         protected const string Horizontal = "Horizontal";
         protected const string Vertical = "Vertical";
 
-        public abstract Vector2 Axis { get; }
+        public abstract Vector2 MoveAxis { get; }
+        public abstract Vector2 RotateAxis { get; }
 
-        protected static Vector2 SimpleInputAxis() =>
-            new Vector2(SimpleInput.GetAxis(Horizontal), SimpleInput.GetAxis(Vertical));
+        protected static Vector2 TankInputAxis() => 
+            JoystickForTank.TankAxis;
+
+        protected static Vector2 TurretInputAxis() =>
+            JoystickForTankTurret.TurretAxis;
     }
 }

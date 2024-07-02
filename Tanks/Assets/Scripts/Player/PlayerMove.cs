@@ -32,9 +32,9 @@ namespace Assets.Scripts.Player
         {
             Vector3 movementVector = Vector3.zero;
 
-            if (_input.Axis.sqrMagnitude > 0)
+            if (_input.MoveAxis.sqrMagnitude > 0)
             {
-                movementVector = _camera.transform.TransformDirection(_input.Axis);
+                movementVector = _camera.transform.TransformDirection(_input.MoveAxis);
                 movementVector.y = 0;
                 movementVector.Normalize();
 

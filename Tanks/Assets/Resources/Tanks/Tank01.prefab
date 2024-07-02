@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 8315738514198209371}
   - component: {fileID: 4956400007467937022}
   - component: {fileID: 7146188697490053172}
-  - component: {fileID: 6704162561409166683}
-  - component: {fileID: 6192623641748597284}
+  - component: {fileID: 4591784970716709876}
+  - component: {fileID: 669921125817387754}
+  - component: {fileID: 6493123956452743978}
   m_Layer: 0
   m_Name: Tank01
   m_TagString: Untagged
@@ -86,7 +87,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!143 &6704162561409166683
+--- !u!143 &4591784970716709876
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,14 +98,14 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 0.32502106
+  m_Height: 0.32
   m_Radius: 0.28
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.1, z: 0}
---- !u!114 &6192623641748597284
+--- !u!114 &669921125817387754
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +118,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 2
-  _rotationSpeed: 10
+  _rotationSpeed: 4
+--- !u!114 &6493123956452743978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8659472870652639713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5928499822c071748b71aea50ca226d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 4
+  _transform: {fileID: 8315738513551001764}
 --- !u!1001 &8425611908937379663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -153,17 +168,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8d7f46fd27f2b8e47b039542c1c8b7b8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d7f46fd27f2b8e47b039542c1c8b7b8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d7f46fd27f2b8e47b039542c1c8b7b8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d7f46fd27f2b8e47b039542c1c8b7b8,
         type: 3}
@@ -198,23 +213,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8425611908937379663}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8659472870085120542 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d7f46fd27f2b8e47b039542c1c8b7b8,
-    type: 3}
-  m_PrefabInstance: {fileID: 8425611908937379663}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6217592765387679232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8659472870085120542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dbe30ea04b17314bbbcb4f5cc48bb6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _turret: {fileID: 8315738513551001764}
-  _rotationSpeed: 3
