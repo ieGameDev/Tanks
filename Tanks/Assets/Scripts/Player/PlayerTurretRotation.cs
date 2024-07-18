@@ -10,9 +10,13 @@ namespace Assets.Scripts.Player
         [SerializeField] private Transform _transform;
 
         private IInputService _input;
+        private Quaternion _currentRotation;
 
-        private void Awake() => 
+        private void Awake()
+        {
             _input = Game.Input;
+            _currentRotation = _transform.rotation;
+        }
 
         private void Update()
         {
@@ -26,7 +30,11 @@ namespace Assets.Scripts.Player
 
                 Quaternion targetRotation = Quaternion.LookRotation(movementVector);
                 _transform.rotation = Quaternion.Slerp(_transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+
+                _currentRotation = _transform.rotation;
             }
+            else
+                _transform.rotation = _currentRotation;
         }
     }
 }
