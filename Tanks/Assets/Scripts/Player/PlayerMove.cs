@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.CameraLogic;
-using Assets.Scripts.Infrastructure.Services.InputService;
+﻿using Assets.Scripts.Infrastructure.Services.InputService;
 using UnityEngine;
 
 namespace Assets.Scripts.Player
@@ -12,7 +11,6 @@ namespace Assets.Scripts.Player
 
         private CharacterController _characterController;
         private IInputService _input;
-        private Camera _camera;
 
         public void Construct(IInputService input) => 
             _input = input;
@@ -20,19 +18,13 @@ namespace Assets.Scripts.Player
         private void Awake() => 
             _characterController = GetComponent<CharacterController>();
 
-        private void Start()
-        {
-            _camera = Camera.main;
-            _camera.GetComponent<CameraFollow>().Follow(gameObject);
-        }
-
         private void Update()
         {
             Vector3 movementVector = Vector3.zero;
 
             if (_input.MoveAxis.sqrMagnitude > 0)
             {
-                movementVector = _camera.transform.TransformDirection(_input.MoveAxis);
+                movementVector = Camera.main.transform.TransformDirection(_input.MoveAxis);
                 movementVector.y = 0;
                 movementVector.Normalize();
 

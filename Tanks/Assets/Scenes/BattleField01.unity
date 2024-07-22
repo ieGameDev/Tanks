@@ -1081,11 +1081,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerInitialPoint
       objectReference: {fileID: 0}
-    - target: {fileID: 2057340599818353392, guid: 28ec8ccaa9bc967448bb6b6ce9c95694,
-        type: 3}
-      propertyPath: m_TagString
-      value: PlayerInitialPoint
-      objectReference: {fileID: 0}
     - target: {fileID: 3062447075904497044, guid: 28ec8ccaa9bc967448bb6b6ce9c95694,
         type: 3}
       propertyPath: m_RootOrder
