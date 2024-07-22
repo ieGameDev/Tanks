@@ -18,7 +18,7 @@ namespace Assets.Scripts.Player
 
         private void Awake()
         {
-            _input = Game.Input;
+            _input = Bootstrap.Input;
             _characterController = GetComponent<CharacterController>();            
         }
 

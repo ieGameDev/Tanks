@@ -1,16 +1,24 @@
+using Assets.Scripts.Infrastructure.Services.InputService;
 using UnityEngine;
 
 namespace Assets.Scripts.Infrastructure.Bootstrap
 {
     public class Bootstrap : MonoBehaviour
     {
-        private Game _game;
+        public static IInputService Input;
 
         private void Awake()
         {
-            _game = new Game();
-
+            RegisterInputService();
             DontDestroyOnLoad(this);
+        }
+
+        private void RegisterInputService()
+        {
+            if (Application.isEditor)
+                Input = new DesktopInput();
+            else
+                Input = new MobileInput();
         }
     }
 }
