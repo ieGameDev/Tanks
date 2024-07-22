@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.CameraLogic;
-using Assets.Scripts.Infrastructure.Bootstrap;
 using Assets.Scripts.Infrastructure.Services.InputService;
 using UnityEngine;
 
@@ -15,12 +14,11 @@ namespace Assets.Scripts.Player
         private IInputService _input;
         private Camera _camera;
 
+        public void Construct(IInputService input) => 
+            _input = input;
 
-        private void Awake()
-        {
-            _input = Bootstrap.Input;
-            _characterController = GetComponent<CharacterController>();            
-        }
+        private void Awake() => 
+            _characterController = GetComponent<CharacterController>();
 
         private void Start()
         {
