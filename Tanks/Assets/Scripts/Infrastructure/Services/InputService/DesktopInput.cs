@@ -19,6 +19,8 @@ namespace Assets.Scripts.Infrastructure.Services.InputService
 
         public override Vector2 RotateAxis { get { return TurretInputAxis(); } }
 
+        public override bool AttackButtonPressed => throw new System.NotImplementedException();
+
         private static Vector2 DesktopInputAxis() =>
             new Vector2(Input.GetAxis(Horizontal), Input.GetAxis(Vertical));
     }
