@@ -22,6 +22,6 @@ namespace Assets.Scripts.Infrastructure.Services.InputService
         public override bool AttackButtonPressed => throw new System.NotImplementedException();
 
         private static Vector2 DesktopInputAxis() =>
-            new Vector2(Input.GetAxis(Horizontal), Input.GetAxis(Vertical));
+            new Vector2(Input.GetAxisRaw(Horizontal), Input.GetAxisRaw(Vertical));
     }
 }
