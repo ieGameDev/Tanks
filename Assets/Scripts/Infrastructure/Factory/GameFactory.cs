@@ -8,12 +8,14 @@ namespace Infrastructure.Factory
 {
     public class GameFactory : IGameFactory
     {
-        private const string Player01Path = "Tanks/Tank01";
-        private const string Player02Path = "Tanks/Tank02";
-        private const string Player03Path = "Tanks/Tank03";
-        private const string Player04Path = "Tanks/Tank04";
-
         private readonly IAssetsProvider _assetProvider;
+        private readonly string[] PlayerPaths =
+        {
+            "Tanks/Tank1",
+            "Tanks/Tank2",
+            "Tanks/Tank3",
+            "Tanks/Tank4"
+        };
 
         private GameObject _player;
 
@@ -22,7 +24,10 @@ namespace Infrastructure.Factory
 
         public GameObject CreatePlayer(GameObject initialPoint)
         {
-            _player = _assetProvider.Instantiate(Player01Path, initialPoint.transform.position + Vector3.up * 1f);
+            int randomIndex = Random.Range(0, PlayerPaths.Length);
+            string randomPlayerPath = PlayerPaths[randomIndex];
+
+            _player = _assetProvider.Instantiate(randomPlayerPath, initialPoint.transform.position + Vector3.up * 1f);
 
             IInputService input = DIContainer.Container.Single<IInputService>();
 
