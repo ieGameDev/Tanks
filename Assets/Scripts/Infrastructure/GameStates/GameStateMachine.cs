@@ -1,9 +1,9 @@
-﻿using Assets.Scripts.Infrastructure.DI;
-using Assets.Scripts.Infrastructure.Factory;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Infrastructure.DI;
+using Infrastructure.Factory;
 
-namespace Assets.Scripts.Infrastructure.GameStates
+namespace Infrastructure.GameStates
 {
     public class GameStateMachine
     {

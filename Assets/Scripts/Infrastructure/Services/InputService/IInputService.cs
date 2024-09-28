@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Infrastructure.DI;
+﻿using Infrastructure.DI;
 using UnityEngine;
 
-namespace Assets.Scripts.Infrastructure.Services.InputService
+namespace Infrastructure.Services.InputService
 {
     public interface IInputService : IService
     {

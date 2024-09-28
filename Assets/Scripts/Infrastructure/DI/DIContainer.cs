@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Infrastructure.DI
+﻿namespace Infrastructure.DI
 {
     public class DIContainer
     {

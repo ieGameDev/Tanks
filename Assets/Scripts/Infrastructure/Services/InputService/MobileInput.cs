@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Infrastructure.Services.InputService
+namespace Infrastructure.Services.InputService
 {
-    public class MobileInput : InputService
+    public class MobileInput : global::Infrastructure.Services.InputService.InputService
     {
         public override Vector2 MoveAxis => TankInputAxis();
 

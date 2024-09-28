@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Assets.Scripts.Infrastructure.GameStates
+﻿namespace Infrastructure.GameStates
 {
     public class GameLoopState : IState
     {

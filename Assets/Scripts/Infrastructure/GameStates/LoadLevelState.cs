@@ -1,8 +1,8 @@
 ﻿using Assets.Scripts.CameraLogic;
-using Assets.Scripts.Infrastructure.Factory;
+using Infrastructure.Factory;
 using UnityEngine;
 
-namespace Assets.Scripts.Infrastructure.GameStates
+namespace Infrastructure.GameStates
 {
     public class LoadLevelState : IState
     {

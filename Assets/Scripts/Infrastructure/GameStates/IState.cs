@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Infrastructure.GameStates
+﻿namespace Infrastructure.GameStates
 {
     public interface IState
     {

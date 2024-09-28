@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Infrastructure.DI;
+﻿using Infrastructure.DI;
 using UnityEngine;
 
-namespace Assets.Scripts.Infrastructure.Factory
+namespace Infrastructure.Factory
 {
     public interface IGameFactory : IService
     {

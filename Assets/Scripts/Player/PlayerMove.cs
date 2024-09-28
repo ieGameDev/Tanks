@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Infrastructure.Services.InputService;
+﻿using Infrastructure.Services.InputService;
 using UnityEngine;
 
-namespace Assets.Scripts.Player
+namespace Player
 {
     [RequireComponent(typeof(CharacterController))]
     public class PlayerMove : MonoBehaviour

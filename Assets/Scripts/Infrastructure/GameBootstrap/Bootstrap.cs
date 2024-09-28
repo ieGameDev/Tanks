@@ -1,8 +1,8 @@
-using Assets.Scripts.Infrastructure.DI;
-using Assets.Scripts.Infrastructure.GameStates;
+using Infrastructure.DI;
+using Infrastructure.GameStates;
 using UnityEngine;
 
-namespace Assets.Scripts.Infrastructure.GameBootstrap
+namespace Infrastructure.GameBootstrap
 {
     public class Bootstrap : MonoBehaviour
     {

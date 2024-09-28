@@ -1,10 +1,10 @@
-﻿using Assets.Scripts.Infrastructure.AssetsManager;
-using Assets.Scripts.Infrastructure.DI;
-using Assets.Scripts.Infrastructure.Factory;
-using Assets.Scripts.Infrastructure.Services.InputService;
+﻿using Infrastructure.AssetsManager;
+using Infrastructure.DI;
+using Infrastructure.Factory;
+using Infrastructure.Services.InputService;
 using UnityEngine;
 
-namespace Assets.Scripts.Infrastructure.GameStates
+namespace Infrastructure.GameStates
 {
     public class BootstrapState : IState
     {

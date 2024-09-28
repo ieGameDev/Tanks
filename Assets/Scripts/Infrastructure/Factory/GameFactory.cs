@@ -1,10 +1,10 @@
-﻿using Assets.Scripts.Infrastructure.AssetsManager;
-using Assets.Scripts.Infrastructure.DI;
-using Assets.Scripts.Infrastructure.Services.InputService;
-using Assets.Scripts.Player;
+﻿using Infrastructure.AssetsManager;
+using Infrastructure.DI;
+using Infrastructure.Services.InputService;
+using Player;
 using UnityEngine;
 
-namespace Assets.Scripts.Infrastructure.Factory
+namespace Infrastructure.Factory
 {
     public class GameFactory : IGameFactory
     {
