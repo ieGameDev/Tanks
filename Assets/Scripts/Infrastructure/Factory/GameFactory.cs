@@ -11,10 +11,7 @@ namespace Infrastructure.Factory
         private readonly IAssetsProvider _assetProvider;
         private readonly string[] PlayerPaths =
         {
-            "Tanks/Tank1",
-            "Tanks/Tank2",
-            "Tanks/Tank3",
-            "Tanks/Tank4"
+            "Tanks/Tank1"
         };
 
         private GameObject _player;
@@ -24,10 +21,7 @@ namespace Infrastructure.Factory
 
         public GameObject CreatePlayer(GameObject initialPoint)
         {
-            int randomIndex = Random.Range(0, PlayerPaths.Length);
-            string randomPlayerPath = PlayerPaths[randomIndex];
-
-            _player = _assetProvider.Instantiate(randomPlayerPath, initialPoint.transform.position + Vector3.up * 1f);
+            _player = _assetProvider.Instantiate(PlayerPaths[0], initialPoint.transform.position + Vector3.up * 1f);
 
             IInputService input = DIContainer.Container.Single<IInputService>();
 
