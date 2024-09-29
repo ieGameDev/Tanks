@@ -2,6 +2,7 @@
 using Infrastructure.Factory;
 using Infrastructure.GameBootstrap;
 using UnityEngine;
+using Utils;
 
 namespace Infrastructure.GameStates
 {

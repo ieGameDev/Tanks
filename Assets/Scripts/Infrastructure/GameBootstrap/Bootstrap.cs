@@ -1,6 +1,7 @@
 using Infrastructure.DI;
 using Infrastructure.GameStates;
 using UnityEngine;
+using Utils;
 
 namespace Infrastructure.GameBootstrap
 {

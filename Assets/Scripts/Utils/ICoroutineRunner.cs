@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Infrastructure.GameBootstrap
+namespace Utils
 {
     public interface ICoroutineRunner
     {
