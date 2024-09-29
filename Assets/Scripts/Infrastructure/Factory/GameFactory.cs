@@ -21,7 +21,7 @@ namespace Infrastructure.Factory
 
         public GameObject CreatePlayer(GameObject initialPoint)
         {
-            _player = _assetProvider.Instantiate(PlayerPaths[0], initialPoint.transform.position + Vector3.up * 1f);
+            _player = _assetProvider.Instantiate(PlayerPaths[0], initialPoint.transform.position + Vector3.up * 0.2f);
 
             IInputService input = DIContainer.Container.Single<IInputService>();
 

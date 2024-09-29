@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace Infrastructure.GameBootstrap
 {
-    public class Bootstrap : MonoBehaviour
+    public class Bootstrap : MonoBehaviour, ICoroutineRunner
     {
-        public GameStateMachine StateMachine;
+        private GameStateMachine _stateMachine;
 
         private void Awake()
         {
-            StateMachine = new GameStateMachine(DIContainer.Container);
-            StateMachine.Enter<BootstrapState>();
+            _stateMachine = new GameStateMachine(new SceneLoader(this), DIContainer.Container);
+            _stateMachine.Enter<BootstrapState>();
 
             DontDestroyOnLoad(this);
         }

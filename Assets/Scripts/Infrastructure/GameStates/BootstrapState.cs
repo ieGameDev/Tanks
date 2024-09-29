@@ -1,6 +1,7 @@
 ﻿using Infrastructure.AssetsManager;
 using Infrastructure.DI;
 using Infrastructure.Factory;
+using Infrastructure.GameBootstrap;
 using Infrastructure.Services.InputService;
 using UnityEngine;
 
@@ -8,19 +9,30 @@ namespace Infrastructure.GameStates
 {
     public class BootstrapState : IState
     {
+        private const string InitialScene = "Initial";
+
         private readonly GameStateMachine _gameStateMachine;
+        private readonly SceneLoader _sceneLoader;
         private readonly DIContainer _container;
 
-        public BootstrapState(GameStateMachine gameStateMachine, DIContainer container)
+        public BootstrapState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, DIContainer container)
         {
             _gameStateMachine = gameStateMachine;
             _container = container;
+            _sceneLoader = sceneLoader;
 
             RegisterServices();
         }
 
         public void Enter() =>
-            _gameStateMachine.Enter<LoadLevelState>();
+            _sceneLoader.Load(InitialScene, EnterLoadLevel);
+
+        public void Exit()
+        {
+        }
+
+        private void EnterLoadLevel() =>
+            _gameStateMachine.Enter<LoadProgressState>();
 
         private void RegisterServices()
         {
