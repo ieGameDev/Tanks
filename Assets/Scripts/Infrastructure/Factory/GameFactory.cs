@@ -9,7 +9,7 @@ namespace Infrastructure.Factory
     public class GameFactory : IGameFactory
     {
         private readonly IAssetsProvider _assetProvider;
-        private readonly string[] PlayerPaths =
+        private readonly string[] _playerPaths =
         {
             "Tanks/Tank1"
         };
@@ -21,7 +21,7 @@ namespace Infrastructure.Factory
 
         public GameObject CreatePlayer(GameObject initialPoint)
         {
-            _player = _assetProvider.Instantiate(PlayerPaths[0], initialPoint.transform.position + Vector3.up * 0.2f);
+            _player = _assetProvider.Instantiate(_playerPaths[0], initialPoint.transform.position + Vector3.up * 0.2f);
 
             IInputService input = DIContainer.Container.Single<IInputService>();
 
