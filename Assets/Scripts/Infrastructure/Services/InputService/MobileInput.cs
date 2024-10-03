@@ -8,6 +8,6 @@ namespace Infrastructure.Services.InputService
 
         public override Vector2 RotateAxis => TurretInputAxis();
 
-        public override bool AttackButtonPressed => throw new System.NotImplementedException();
+        public override bool AttackButtonPressed => FireButtonPressed();
     }
 }

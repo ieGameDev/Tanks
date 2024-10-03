@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 669921125817387754, guid: 4d3cbce9772769a4983e0761afb2fb15,
@@ -12,6 +13,11 @@ PrefabInstance:
       propertyPath: _animator
       value: 
       objectReference: {fileID: 5043009781875607533}
+    - target: {fileID: 1257666069641870712, guid: 4d3cbce9772769a4983e0761afb2fb15,
+        type: 3}
+      propertyPath: _firePoint
+      value: 
+      objectReference: {fileID: 5357195291602520878}
     - target: {fileID: 3397732633639237862, guid: 4d3cbce9772769a4983e0761afb2fb15,
         type: 3}
       propertyPath: _playerAnimator
@@ -93,6 +99,9 @@ PrefabInstance:
       value: Smoke1FX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d3cbce9772769a4983e0761afb2fb15, type: 3}
 --- !u!4 &1584083228508458759 stripped
 Transform:
@@ -118,3 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28ceeff29eecc94f9e3b097480b2c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &5357195291602520878 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2342964457019847717, guid: 4d3cbce9772769a4983e0761afb2fb15,
+    type: 3}
+  m_PrefabInstance: {fileID: 7699877152523927307}
+  m_PrefabAsset: {fileID: 0}
