@@ -7,6 +7,6 @@ namespace Infrastructure.Services.InputService
     {
         Vector2 MoveAxis { get; }
         Vector2 RotateAxis { get; }
-        bool AttackButtonPressed { get; }
+        bool AttackButtonPressed();
     }
 }

@@ -1,27 +1,25 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Infrastructure.Services.InputService
 {
-    public class FireButton : MonoBehaviour
+    public class FireButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         public static bool FireAxis { get; private set; }
 
-        private Button _fireButton;
+        [SerializeField] private Image _fireButton;
 
-        private void Awake()
+        public void OnPointerDown(PointerEventData eventData)
         {
-            _fireButton = GetComponent<Button>();
-            _fireButton.onClick.AddListener(OnButtonPress);
+            if (_fireButton != null)
+                FireAxis = true;
         }
 
-        private void OnButtonPress()
+        public void OnPointerUp(PointerEventData eventData)
         {
-            FireAxis = true;
-            Invoke(nameof(ResetFireAxis), 0.1f);
+            if (_fireButton != null)
+                FireAxis = false;
         }
-
-        private void ResetFireAxis() =>
-            FireAxis = false;
     }
 }

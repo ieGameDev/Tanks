@@ -9,15 +9,12 @@ namespace Infrastructure.Services.InputService
 
         public abstract Vector2 MoveAxis { get; }
         public abstract Vector2 RotateAxis { get; }
-        public abstract bool AttackButtonPressed { get; }
+        public bool AttackButtonPressed() => FireButton.FireAxis;
 
         protected static Vector2 TankInputAxis() =>
             JoystickForTank.TankAxis;
 
         protected static Vector2 TurretInputAxis() =>
             JoystickForTankTurret.TurretAxis;
-
-        protected static bool FireButtonPressed() =>
-            FireButton.FireAxis;
     }
 }

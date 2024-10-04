@@ -18,9 +18,6 @@ namespace Infrastructure.Services.InputService
         }
 
         public override Vector2 RotateAxis => TurretInputAxis();
-
-        public override bool AttackButtonPressed => Input.GetMouseButtonDown(1);
-
         private static Vector2 DesktopInputAxis() => new(Input.GetAxisRaw(Horizontal), Input.GetAxisRaw(Vertical));
     }
 }

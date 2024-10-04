@@ -28,7 +28,7 @@ namespace Player
 
         private void Attack()
         {
-            if (CanShoot() && _inputService.AttackButtonPressed)
+            if (CanShoot() && _inputService.AttackButtonPressed())
             {
                 Shoot();
                 _lastShootTime = Time.time;
