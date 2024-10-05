@@ -18,6 +18,11 @@ PrefabInstance:
       propertyPath: _firePoint
       value: 
       objectReference: {fileID: 5357195291602520878}
+    - target: {fileID: 2342964457019847717, guid: 4d3cbce9772769a4983e0761afb2fb15,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.657
+      objectReference: {fileID: 0}
     - target: {fileID: 3397732633639237862, guid: 4d3cbce9772769a4983e0761afb2fb15,
         type: 3}
       propertyPath: _playerAnimator

@@ -5,25 +5,28 @@ namespace Player
 {
     public class PlayerTurretRotation : MonoBehaviour
     {
-        [SerializeField] private float _rotationSpeed;
         [SerializeField] private Transform _transform;
 
-        private IInputService _input;
         private Quaternion _currentRotation;
+        private Camera _camera;
+        private IInputService _input;
+        private float _rotationSpeed;
 
-        public void Construct(IInputService input) => 
+        public void Construct(IInputService input, float rotationSpeed, Camera mainCamera)
+        {
             _input = input;
+            _rotationSpeed = rotationSpeed;
+            _camera = mainCamera;
+        }
 
         private void Awake() => 
             _currentRotation = _transform.rotation;
 
         private void Update()
         {
-            Vector3 movementVector = Vector3.zero;
-
             if (_input.RotateAxis.sqrMagnitude > 0)
             {
-                movementVector = Camera.main.transform.TransformDirection(_input.RotateAxis);
+                Vector3 movementVector = _camera.transform.TransformDirection(_input.RotateAxis);
                 movementVector.y = 0;
                 movementVector.Normalize();
 

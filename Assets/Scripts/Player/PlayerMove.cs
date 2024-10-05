@@ -6,17 +6,24 @@ namespace Player
     [RequireComponent(typeof(CharacterController))]
     public class PlayerMove : MonoBehaviour
     {
-        [SerializeField] private float _movementSpeed;
-        [SerializeField] private float _rotationSpeed;
         [SerializeField] private PlayerAnimator _animator;
-
+        
         private CharacterController _characterController;
+        private Camera _camera;
+        
         private IInputService _input;
+        private float _movementSpeed;
+        private float _rotationSpeed;
 
-        public void Construct(IInputService input) =>
+        public void Construct(IInputService input, float movementSpeed, float rotationSpeed, Camera mainCamera)
+        {
             _input = input;
+            _movementSpeed = movementSpeed;
+            _rotationSpeed = rotationSpeed;
+            _camera = mainCamera;
+        }
 
-        private void Awake() =>
+        private void Awake() => 
             _characterController = GetComponent<CharacterController>();
 
         private void Update()
@@ -28,7 +35,7 @@ namespace Player
 
             if (isMoving)
             {
-                movementVector = Camera.main.transform.TransformDirection(_input.MoveAxis);
+                movementVector = _camera.transform.TransformDirection(_input.MoveAxis);
                 movementVector.y = 0;
                 movementVector.Normalize();
 
@@ -38,7 +45,7 @@ namespace Player
 
             movementVector += Physics.gravity;
 
-            _characterController.Move(_movementSpeed * movementVector * Time.deltaTime);
+            _characterController.Move(movementVector * (_movementSpeed * Time.deltaTime));
         }
     }
 }

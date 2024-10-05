@@ -13,7 +13,7 @@ namespace Infrastructure.Services.InputService
                 if (axis == Vector2.zero)
                     axis = DesktopInputAxis();
 
-                return axis;
+                return axis.normalized;
             }
         }
 

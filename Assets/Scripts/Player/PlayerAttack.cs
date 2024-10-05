@@ -7,8 +7,6 @@ namespace Player
 {
     public class PlayerAttack : MonoBehaviour
     {
-        private const string BulletPath = "Tanks/Bullet";
-        
         [SerializeField] private float _attackCooldown = 0.5f;
         [SerializeField] private float _bulletSpeed = 15f;
         [SerializeField] private Transform _firePoint;
@@ -28,16 +26,16 @@ namespace Player
 
         private void Attack()
         {
-            if (CanShoot() && _inputService.AttackButtonPressed())
-            {
-                Shoot();
-                _lastShootTime = Time.time;
-            }
+            if (!CanShoot() || !_inputService.AttackButtonPressed()) 
+                return;
+            
+            Shoot();
+            _lastShootTime = Time.time;
         }
 
         private void Shoot()
         {
-            GameObject bullet = _assetProvider.Instantiate(BulletPath, _firePoint.position);
+            GameObject bullet = _assetProvider.Instantiate(AssetAddress.BulletPath, _firePoint.position);
             Bullet bulletComponent = bullet.GetComponent<Bullet>();
             bulletComponent.Initialize(_firePoint.forward, _bulletSpeed);
         }
