@@ -6,13 +6,18 @@ namespace Logic
     public class Bullet : MonoBehaviour
     {
         [SerializeField] private Rigidbody _rigidbody;
+        
+        private PoolBase<Bullet> _pool;
 
-        public void Initialize(Vector3 direction, float speed) => 
+        public void Initialize(PoolBase<Bullet> pool, Vector3 direction, float speed)
+        {
+            _pool = pool;
             _rigidbody.velocity = direction * speed;
+        }
 
         private void OnTriggerEnter(Collider other)
         {
-            Destroy(gameObject);
+            _pool.Return(this);
         }
     }
 }

@@ -17,3 +17,4 @@ MonoBehaviour:
   TurretRotationSpeed: 4
   BulletSpeed: 15
   AttackCooldown: 0.5
+  BulletPoolSize: 10

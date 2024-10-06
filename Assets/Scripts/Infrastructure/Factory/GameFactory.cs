@@ -18,16 +18,20 @@ namespace Infrastructure.Factory
 
         public GameObject CreatePlayer(GameObject initialPoint)
         {
-            _player = _assetProvider.Instantiate(AssetAddress.PlayerPath, initialPoint.transform.position + Vector3.up * 0.2f);
+            _player = _assetProvider.Instantiate(AssetAddress.PlayerPath,
+                initialPoint.transform.position + Vector3.up * 0.2f);
 
             IInputService input = DIContainer.Container.Single<IInputService>();
-            
+
             PlayerData playerData = Resources.Load<PlayerData>(AssetAddress.PlayerDataPath);
-            
             Camera playerCamera = Camera.main;
+            
             float movementSpeed = playerData.MovementSpeed;
             float tankRotationSpeed = playerData.RotationSpeed;
             float turretRotationSpeed = playerData.TurretRotationSpeed;
+            float cooldown = playerData.AttackCooldown;
+            float bulletSpeed = playerData.BulletSpeed;
+            int bulletPoolSize = playerData.BulletPoolSize;
 
             PlayerMove playerMovement = _player.GetComponentInChildren<PlayerMove>();
             PlayerTurretRotation playerRotation = _player.GetComponentInChildren<PlayerTurretRotation>();
@@ -35,7 +39,7 @@ namespace Infrastructure.Factory
 
             playerMovement.Construct(input, movementSpeed, tankRotationSpeed, playerCamera);
             playerRotation.Construct(input, turretRotationSpeed, playerCamera);
-            playerAttack.Construct(input, _assetProvider);
+            playerAttack.Construct(input, _assetProvider, cooldown, bulletSpeed, bulletPoolSize);
 
             return _player;
         }

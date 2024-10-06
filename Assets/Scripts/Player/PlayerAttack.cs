@@ -7,40 +7,62 @@ namespace Player
 {
     public class PlayerAttack : MonoBehaviour
     {
-        [SerializeField] private float _attackCooldown = 0.5f;
-        [SerializeField] private float _bulletSpeed = 15f;
         [SerializeField] private Transform _firePoint;
 
-        private float _lastShootTime;
         private IInputService _inputService;
         private IAssetsProvider _assetProvider;
+        private PoolBase<Bullet> _bulletPool;
+        private float _attackCooldown;
+        private float _bulletSpeed;
+        private float _lastShootTime;
 
-        public void Construct(IInputService inputService, IAssetsProvider assetProvider)
+        public void Construct(IInputService inputService, IAssetsProvider assetProvider, float attackCooldown,
+            float bulletSpeed, int poolSize)
         {
-            _assetProvider = assetProvider;
             _inputService = inputService;
+            _assetProvider = assetProvider;
+            _attackCooldown = attackCooldown;
+            _bulletSpeed = bulletSpeed;
+            _bulletPool = new PoolBase<Bullet>(PreloadBullet, GetAction, ReturnAction, poolSize);
         }
 
-        private void Update() => 
+        private void Update() =>
             Attack();
 
         private void Attack()
         {
-            if (!CanShoot() || !_inputService.AttackButtonPressed()) 
+            if (!CanShoot() || !_inputService.AttackButtonPressed())
                 return;
-            
+
             Shoot();
             _lastShootTime = Time.time;
         }
 
         private void Shoot()
         {
-            GameObject bullet = _assetProvider.Instantiate(AssetAddress.BulletPath, _firePoint.position);
-            Bullet bulletComponent = bullet.GetComponent<Bullet>();
-            bulletComponent.Initialize(_firePoint.forward, _bulletSpeed);
+            Bullet bullet = _bulletPool.Get();
+            bullet.transform.position = _firePoint.position;
+            bullet.Initialize(_bulletPool, _firePoint.forward, _bulletSpeed);
         }
 
-        private bool CanShoot() => 
+        private bool CanShoot() =>
             Time.time >= _lastShootTime + _attackCooldown;
+
+        private Bullet PreloadBullet()
+        {
+            GameObject bulletObject = _assetProvider.Instantiate(AssetAddress.BulletPath, Vector3.zero);
+            Bullet bullet = bulletObject.GetComponent<Bullet>();
+            return bullet;
+        }
+
+        private void GetAction(Bullet bullet)
+        {
+            bullet.gameObject.SetActive(true);
+        }
+
+        private void ReturnAction(Bullet bullet)
+        {
+            bullet.gameObject.SetActive(false);
+        }
     }
 }

@@ -18,9 +18,6 @@ namespace Logic
             _getAction = getAction;
             _returnAction = returnAction;
 
-            if (preloadCount == null)
-                return;
-
             for (int i = 0; i < preloadCount; i++)
                 Return(preloadFunc());
         }
