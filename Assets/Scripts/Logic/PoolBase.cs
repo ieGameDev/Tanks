@@ -9,8 +9,8 @@ namespace Logic
         private readonly Action<T> _getAction;
         private readonly Action<T> _returnAction;
 
-        private Queue<T> _pool = new Queue<T>();
-        private List<T> _active = new List<T>();
+        private readonly Queue<T> _pool = new Queue<T>();
+        private readonly List<T> _active = new List<T>();
 
         public PoolBase(Func<T> preloadFunc, Action<T> getAction, Action<T> returnAction, int preloadCount)
         {

@@ -55,14 +55,10 @@ namespace Player
             return bullet;
         }
 
-        private void GetAction(Bullet bullet)
-        {
+        private void GetAction(Bullet bullet) => 
             bullet.gameObject.SetActive(true);
-        }
 
-        private void ReturnAction(Bullet bullet)
-        {
+        private void ReturnAction(Bullet bullet) => 
             bullet.gameObject.SetActive(false);
-        }
     }
 }

@@ -44,9 +44,7 @@ namespace Infrastructure.Factory
             return _player;
         }
 
-        // public GameObject CreatePlayerHUD()
-        // {
-        //     
-        // }
+        public GameObject CreatePlayerHUD() => 
+            _assetProvider.Instantiate(AssetAddress.PlayerHUDPath);
     }
 }

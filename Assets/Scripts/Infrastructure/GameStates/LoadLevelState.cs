@@ -32,7 +32,7 @@ namespace Infrastructure.GameStates
         {
             GameObject player = InitialPlayer();
             CameraFollow(player);
-
+            InitialHUD();
             _gameStateMachine.Enter<GameLoopState>();
         }
 
@@ -42,5 +42,7 @@ namespace Infrastructure.GameStates
         private void CameraFollow(GameObject player) =>
             Camera.main?.GetComponent<CameraFollow>().Follow(player);
 
+        private GameObject InitialHUD() => 
+            _gameFactory.CreatePlayerHUD();
     }
 }
