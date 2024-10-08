@@ -31,6 +31,7 @@ namespace Infrastructure.Factory
             float turretRotationSpeed = playerData.TurretRotationSpeed;
             float cooldown = playerData.AttackCooldown;
             float bulletSpeed = playerData.BulletSpeed;
+            float bulletDamage = playerData.Damage;
             int bulletPoolSize = playerData.BulletPoolSize;
 
             PlayerMove playerMovement = _player.GetComponentInChildren<PlayerMove>();
@@ -39,7 +40,7 @@ namespace Infrastructure.Factory
 
             playerMovement.Construct(input, movementSpeed, tankRotationSpeed, playerCamera);
             playerRotation.Construct(input, turretRotationSpeed, playerCamera);
-            playerAttack.Construct(input, _assetProvider, cooldown, bulletSpeed, bulletPoolSize);
+            playerAttack.Construct(input, _assetProvider, cooldown, bulletSpeed, bulletPoolSize, bulletDamage);
 
             return _player;
         }

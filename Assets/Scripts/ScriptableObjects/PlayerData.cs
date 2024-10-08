@@ -13,6 +13,7 @@ namespace ScriptableObjects
         [Header("Bullet Data")]
         public float BulletSpeed;
         public float AttackCooldown;
+        public float Damage;
         
         [Header("Bullet Pool Data")]
         public int BulletPoolSize;

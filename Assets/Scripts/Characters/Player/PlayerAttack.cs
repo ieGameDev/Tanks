@@ -14,15 +14,17 @@ namespace Player
         private PoolBase<Bullet> _bulletPool;
         private float _attackCooldown;
         private float _bulletSpeed;
+        private float _bulletDamage;
         private float _lastShootTime;
 
         public void Construct(IInputService inputService, IAssetsProvider assetProvider, float attackCooldown,
-            float bulletSpeed, int poolSize)
+            float bulletSpeed, int poolSize, float damage)
         {
             _inputService = inputService;
             _assetProvider = assetProvider;
             _attackCooldown = attackCooldown;
             _bulletSpeed = bulletSpeed;
+            _bulletDamage = damage;
             _bulletPool = new PoolBase<Bullet>(PreloadBullet, GetAction, ReturnAction, poolSize);
         }
 
@@ -42,7 +44,7 @@ namespace Player
         {
             Bullet bullet = _bulletPool.Get();
             bullet.transform.position = _firePoint.position;
-            bullet.Initialize(_bulletPool, _firePoint.forward, _bulletSpeed);
+            bullet.Initialize(_bulletPool, _firePoint.forward, _bulletSpeed, _bulletDamage);
         }
 
         private bool CanShoot() =>
