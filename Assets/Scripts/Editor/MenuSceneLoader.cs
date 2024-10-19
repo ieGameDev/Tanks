@@ -1,12 +1,12 @@
-using UnityEditor.SceneManagement;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace Infrastructure.Editor
+namespace Editor
 {
     public class MenuSceneLoader : MonoBehaviour
     {
-        private const string MenuItemName = "ieGameDev/Scenes";
+        private const string MenuItemName = "\ud83c\udfae ieGameDev/Scenes";
 
         [MenuItem(MenuItemName + "/Initial", priority = 1000)]
         public static void LoadInitia() =>
