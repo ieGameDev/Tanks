@@ -14,7 +14,7 @@ namespace Logic
         {
             _pool = pool;
             _damage = damage;
-            _rigidbody.velocity = direction * speed;
+            _rigidbody.linearVelocity = direction * speed;
         }
 
         private void OnTriggerEnter(Collider other)
