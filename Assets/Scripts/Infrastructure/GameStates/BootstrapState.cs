@@ -39,7 +39,13 @@ namespace Infrastructure.GameStates
         {
             _container.RegisterSingle(InputService());
             _container.RegisterSingle<IAssetsProvider>(new AssetsProvider());
-            _container.RegisterSingle<IGameFactory>(new GameFactory(_container.Single<IAssetsProvider>()));
+            
+            _container.RegisterSingle<IGameFactory>(new GameFactory
+                (
+                    _container.Single<IAssetsProvider>(),
+                    _container.Single<IInputService>()
+                )
+            );
         }
 
         private static IInputService InputService()
