@@ -24,7 +24,8 @@ namespace Infrastructure.Services.InputService
         {
             Vector2 joystickPosition;
 
-            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_joystickBackground.rectTransform, eventData.position, null, out joystickPosition))
+            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_joystickBackground.rectTransform,
+                    eventData.position, null, out joystickPosition))
             {
                 float scaleFactorX = 2f / _backgroundRectTransform.sizeDelta.x;
                 float scaleFactorY = 2f / _backgroundRectTransform.sizeDelta.y;
@@ -36,13 +37,13 @@ namespace Infrastructure.Services.InputService
                 _inputVector = Vector2.ClampMagnitude(_inputVector, 1f);
 
                 _joystickRectTransform.anchoredPosition = new Vector2(
-                    _inputVector.x * (_backgroundRectTransform.sizeDelta.x / 2), 
+                    _inputVector.x * (_backgroundRectTransform.sizeDelta.x / 2),
                     _inputVector.y * (_backgroundRectTransform.sizeDelta.y / 2)
-                    );
+                );
             }
         }
 
-        public void OnPointerDown(PointerEventData eventData) => 
+        public void OnPointerDown(PointerEventData eventData) =>
             OnDrag(eventData);
 
         public void OnPointerUp(PointerEventData eventData)

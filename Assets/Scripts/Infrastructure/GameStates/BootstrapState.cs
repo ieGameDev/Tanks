@@ -3,6 +3,7 @@ using Infrastructure.DI;
 using Infrastructure.Factory;
 using Infrastructure.GameBootstrap;
 using Infrastructure.Services.InputService;
+using Infrastructure.Services.StaticData;
 using UnityEngine;
 using Utils;
 
@@ -37,15 +38,26 @@ namespace Infrastructure.GameStates
 
         private void RegisterServices()
         {
+            RegisterStaticData();
+                
             _container.RegisterSingle(InputService());
             _container.RegisterSingle<IAssetsProvider>(new AssetsProvider());
             
             _container.RegisterSingle<IGameFactory>(new GameFactory
                 (
                     _container.Single<IAssetsProvider>(),
-                    _container.Single<IInputService>()
+                    _container.Single<IInputService>(),
+                    _container.Single<IStaticDataService>()
                 )
             );
+        }
+
+        private void RegisterStaticData()
+        {
+            IStaticDataService staticData = new StaticDataService();
+            staticData.LoadPlayer();
+            
+            _container.RegisterSingle(staticData);
         }
 
         private static IInputService InputService()
