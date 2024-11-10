@@ -1,18 +1,18 @@
 ﻿using Infrastructure.Services.InputService;
 using UnityEngine;
 
-namespace Player
+namespace Characters.Player
 {
     public class PlayerTurretRotation : MonoBehaviour
     {
         [SerializeField] private Transform _transform;
 
         private Quaternion _currentRotation;
-        private Camera _camera;
+        private GameObject _camera;
         private IInputService _input;
         private float _rotationSpeed;
 
-        public void Construct(IInputService input, float rotationSpeed, Camera mainCamera)
+        public void Construct(IInputService input, float rotationSpeed, GameObject mainCamera)
         {
             _input = input;
             _rotationSpeed = rotationSpeed;

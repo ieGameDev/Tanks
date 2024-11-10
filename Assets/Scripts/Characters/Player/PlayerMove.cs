@@ -1,7 +1,8 @@
 ﻿using Infrastructure.Services.InputService;
+using Player;
 using UnityEngine;
 
-namespace Player
+namespace Characters.Player
 {
     [RequireComponent(typeof(CharacterController))]
     public class PlayerMove : MonoBehaviour
@@ -9,18 +10,18 @@ namespace Player
         [SerializeField] private PlayerAnimator _animator;
         
         private CharacterController _characterController;
-        private Camera _camera;
+        private GameObject _camera;
         
         private IInputService _input;
         private float _movementSpeed;
         private float _rotationSpeed;
 
-        public void Construct(IInputService input, float movementSpeed, float rotationSpeed, Camera mainCamera)
+        public void Construct(IInputService input, float movementSpeed, float rotationSpeed, GameObject followCamera)
         {
             _input = input;
             _movementSpeed = movementSpeed;
             _rotationSpeed = rotationSpeed;
-            _camera = mainCamera;
+            _camera = followCamera;
         }
 
         private void Awake() => 

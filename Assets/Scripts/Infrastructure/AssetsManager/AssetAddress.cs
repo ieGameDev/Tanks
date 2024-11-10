@@ -2,6 +2,7 @@ namespace Infrastructure.AssetsManager
 {
     public static class AssetAddress
     {
+        public const string CameraContainerPath = "Camera/CameraContainer";
         public const string PlayerPath = "Tanks/Tank1";
         public const string BulletPath = "Tanks/Bullet";
         public const string PlayerDataPath = "ScriptableObjects/PlayerData";

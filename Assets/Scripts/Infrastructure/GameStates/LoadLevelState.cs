@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.CameraLogic;
+﻿using CameraLogic;
 using Infrastructure.Factory;
 using Infrastructure.GameBootstrap;
 using UnityEngine;
@@ -21,7 +21,7 @@ namespace Infrastructure.GameStates
             _sceneLoader = sceneLoader;
         }
 
-        public void Enter(string sceneName) => 
+        public void Enter(string sceneName) =>
             _sceneLoader.Load(sceneName, OnLoaded);
 
         public void Exit()
@@ -30,19 +30,28 @@ namespace Infrastructure.GameStates
 
         private void OnLoaded()
         {
-            GameObject player = InitialPlayer();
-            CameraFollow(player);
-            InitialHUD();
+            InitialGameWorld();
             _gameStateMachine.Enter<GameLoopState>();
         }
+
+        private void InitialGameWorld()
+        {
+            GameObject cameraContainer = InitialCameraContainer();
+            GameObject player = InitialPlayer();
+            InitialHUD();
+            CameraFollow(cameraContainer, player);
+        }
+
+        private GameObject InitialCameraContainer() =>
+            _gameFactory.CreateCameraContainer();
 
         private GameObject InitialPlayer() =>
             _gameFactory.CreatePlayer(GameObject.FindWithTag(PlayerInitialPointTag));
 
-        private void CameraFollow(GameObject player) =>
-            Camera.main?.GetComponent<CameraFollow>().Follow(player);
+        private void CameraFollow(GameObject cameraContainer, GameObject player) =>
+            cameraContainer.GetComponent<CameraFollow>().Follow(player);
 
-        private GameObject InitialHUD() => 
+        private GameObject InitialHUD() =>
             _gameFactory.CreatePlayerHUD();
     }
 }

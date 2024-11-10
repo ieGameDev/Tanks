@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.CameraLogic
+namespace CameraLogic
 {
     public class CameraFollow : MonoBehaviour
     {
@@ -13,14 +13,13 @@ namespace Assets.Scripts.CameraLogic
 
         private void LateUpdate()
         {
-            if (_player == null)
-                return;
+            if (!_player) return;
 
             Quaternion rotation = Quaternion.Euler(_rotationAngleX, 0, 0);
-
             Vector3 targetPosition = rotation * new Vector3(0, 0, -_distance) + _player.position;
 
-            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _currentVelocity, _smoothTime);
+            transform.position =
+                Vector3.SmoothDamp(transform.position, targetPosition, ref _currentVelocity, _smoothTime);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, _smoothTime);
         }
 
