@@ -2,9 +2,10 @@ using DG.Tweening;
 using Infrastructure.AssetsManager;
 using Infrastructure.Services.InputService;
 using Logic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Player
+namespace Characters.Player
 {
     public class PlayerAttack : MonoBehaviour
     {
@@ -56,11 +57,11 @@ namespace Player
         private void ShakeCamera()
         {
             _camera?
-                .DOShakePosition(0.12f, 0.1f, 2, 90f, true, ShakeRandomnessMode.Harmonic)
+                .DOShakePosition(0.12f, 0.05f, 5, 45f, true, ShakeRandomnessMode.Harmonic)
                 .SetEase(Ease.InOutBounce);
 
             _camera?
-                .DOShakeRotation(0.12f, 0.1f, 2, 90f, true, ShakeRandomnessMode.Harmonic)
+                .DOShakeRotation(0.12f, 0.03f, 5, 45f, true, ShakeRandomnessMode.Harmonic)
                 .SetEase(Ease.InOutBounce);
         }
 
